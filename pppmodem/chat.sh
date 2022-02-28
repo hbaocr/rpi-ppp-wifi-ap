@@ -10,7 +10,7 @@
 # This is part 2 of the ppp-on script. It will perform the connection
 # protocol for the desired connection.
 #
-chat  -v                                       \
+/usr/sbin/chat  -v                                       \
         TIMEOUT         3                               \
         ABORT           '\nBUSY\r'                      \
         ABORT           '\nNO ANSWER\r'                 \
