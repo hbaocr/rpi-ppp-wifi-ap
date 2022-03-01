@@ -16,9 +16,9 @@
         ABORT           '\nNO ANSWER\r'                 \
         ABORT           '\nRINGING\r\n\r\nRINGING\r'    \
         ABORT           '\nNO CARRIER\r'                \
-        ''              "\rATQ0 V1 E1 S0=0 S2=128 &C1 &D2 +FCLASS=0" \
+        ''              "\rATQ0 V1 E0 S0=0 S2=128 &C1 &D2 +FCLASS=0" \
         TIMEOUT         240                             \
         OK              ATD1089                         \
-        ONECT           '/r/n' \
+        ONECT           '' \
         ogin: dream                                \
         ssword: dreamcast
