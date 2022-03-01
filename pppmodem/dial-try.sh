@@ -7,5 +7,5 @@ do
     echo "====> Start new dial $COUNTER" > $log_file
     sudo ./dial.sh
     COUNTER=$[$COUNTER +1]
-    sleep 3
+    sleep 5
 done
