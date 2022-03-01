@@ -61,6 +61,12 @@ start_dnsmasq(){
                 sudo dnsmasq -C ../config_ap/dnsmasq.conf -d
         fi    
 }
+#default route is pointing to eth0, need to point your default route to ppp0 instead
+# if don't set this all ethernet traffic  by default will route to eth0 or wlan0
+# make sure you set default route = ppp0 if you want to let wlan0 get internet from ppp0
+set_default_route(){
+        sudo ip route add default dev $pppdev
+}
 
 echo "0. Kill wpa_supplicant to release wlan0"
 # kill wpa_supplicant to release wlan0
@@ -73,7 +79,10 @@ sudo ifconfig "$wifidev" up
 echo "1.setup static IP address $ip_gateway"
 set_static_ip
 
-echo "2.start AP"
+echo "2.Set default route is: $pppdev."
+set_default_route
+
+echo "3.start AP"
 #  start subshell to  fork thread http://tldp.org/LDP/abs/html/subshells.html 
 #  Running parallel processes in subshells by using &
 start_hostapd & # fork this process and run parallel

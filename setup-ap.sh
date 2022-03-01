@@ -38,6 +38,17 @@ sudo chmod +x "$setup_path/bin/start_fork_ap.sh"
 sudo cp -f ./config_service/autohotspot.service /etc/systemd/system/autohotspot.service
 sudo systemctl enable autohotspot.service
 sudo systemctl start autohotspot.service
+
+#############################################
+echo "------->5. Modify ip-up and ip-down in /etc/ppp to set ethernet defaultroute to ppp when this interface up(dial ok)"
+sudo cp -f "$setup_path/bin/ppp/ip-up" /etc/ppp/ip-up
+sudo cp -f "$setup_path/bin/ppp/ip-down" /etc/ppp/ip-down
+sudo chmod +x /etc/ppp/ip-up
+sudo chmod +x /etc/ppp/ip-down
+
+#############################################
+
+echo "Reboot service"
 sudo reboot
 
 
