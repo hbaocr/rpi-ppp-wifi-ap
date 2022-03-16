@@ -9,7 +9,9 @@ cd SAMS_PPP_220203/tty0tty
 make
 sudo cp tty0tty.ko /etc/sams
 
-sudo cp /usr/lib/systemd/system/sams.service /lib/systemd/system/
+
+sudo systemctl enable sams
+#sudo cp /usr/lib/systemd/system/sams.service /lib/systemd/system/
 sudo systemctl restart sams
 
 
