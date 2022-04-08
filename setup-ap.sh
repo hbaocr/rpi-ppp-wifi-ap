@@ -5,7 +5,13 @@ setup_path="$(pwd)"
 echo "1. Install required services"
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install -y hostapd dnsmasq ppp minicom iptables python3 psmisc
+sudo apt-get install -y hostapd dnsmasq ppp minicom iptables python3 psmisc wget
+
+###install nvm and nodejs
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.bashrc
+nvm install 14
+
 
 ##########################################
 
