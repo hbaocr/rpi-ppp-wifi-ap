@@ -1,6 +1,6 @@
 #!/bin/bash
 #https://dogemicrosystems.ca/wiki/Dial-up_pool
-
+#sudo iptables --table nat --append POSTROUTING --out-interface enp0s3 -j MASQUERADE
 #Create a systemd service for mgetty, by editing /lib/systemd/system/mgetty@.service (note the @) with your text editor of choice as root or sudo.
 
 # create startup executables

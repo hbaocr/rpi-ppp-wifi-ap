@@ -5,7 +5,7 @@ setup_path="$(pwd)"
 echo "1. Install required services"
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install -y hostapd dnsmasq ppp minicom iptables python3
+sudo apt-get install -y hostapd dnsmasq ppp minicom iptables python3 psmisc
 
 ##########################################
 
@@ -47,7 +47,39 @@ sudo chmod +x /etc/ppp/ip-up
 sudo chmod +x /etc/ppp/ip-down
 
 #############################################
+echo "------->6. Setup WebAPI nodejs"
 
+cd "$setup_path/WEBAPI"
+npm install
+
+#create startup executables
+sudo bash -c 'cat > /etc/systemd/system/webapi.service' << EOF
+[Unit]
+Description=API PPP Dial Service
+Requires=network.target
+After=network.target
+
+[Service]
+WorkingDirectory=$setup_path/WEBAPI
+ExecStart=$(which node) index.js
+Restart=always
+# Restart service after 10 seconds if node service crashes
+RestartSec=10
+# Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=nodejs-pppd-dial
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl enable webapi.service
+sudo systemctl start webapi.service
+
+
+
+
+#############################################
 echo "Reboot service"
 sudo reboot
 
