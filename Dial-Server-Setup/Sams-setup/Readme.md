@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install build-essential linux-generic libelf-dev  zip unzip ppp net-tools
+sudo apt-get install build-essential linux-generic libelf-dev  zip unzip ppp net-tools -y
 sudo apt install linux-headers-$(uname -r)
 
 sudo dpkg -i SAMS_7.44-1.deb

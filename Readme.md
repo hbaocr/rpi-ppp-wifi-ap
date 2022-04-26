@@ -66,6 +66,9 @@ sudo ip route add default dev ppp0
 
 
 
+######
+Reference
+https://cdn-reichelt.de/documents/datenblatt/G100/8560C1_MANUAL.pdf
 
 
 

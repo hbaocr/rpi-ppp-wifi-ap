@@ -60,37 +60,6 @@ function hangup_pppd() {
     });
 }
 
-// function get_ppp_ip() {
-//     return new Promise((resolved, reject) => {
-
-//         let cmd = `./get_ppp_ip.sh`
-//         cmd = `cd bin && ${cmd}`;
-//        // console.log(cmd);
-//         os_cmd.exec(cmd, function (error, stdout, stderr) {
-//             if (error) {
-//                 reject(stderr);
-//             } else {
-//                 resolved(stdout);
-//             }
-//         });
-//     })
-// }
-
-// function get_gateway_ip() {
-//     return new Promise((resolved, reject) => {
-
-//         let cmd = `./get_gateway_ip.sh`
-//         cmd = `cd bin && ${cmd}`;
-//         //console.log(cmd);
-//         os_cmd.exec(cmd, function (error, stdout, stderr) {
-//             if (error) {
-//                 reject(stderr);
-//             } else {
-//                 resolved(stdout);
-//             }
-//         });
-//     })
-// }
 
 function get_iface_ip(iface_name) {
     return new Promise((resolved, reject) => {

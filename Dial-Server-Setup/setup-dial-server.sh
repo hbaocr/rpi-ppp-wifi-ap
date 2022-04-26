@@ -26,4 +26,5 @@ sudo passwd $username # need to input dreamcast
 
 #setup iptable
 #sudo iptables -t nat -A POSTROUTING -s 10.9.0.0/16 -o eth1 -j MASQUERADE
+#sudo iptables -t nat -A POSTROUTING -s 10.9.0.0/24 -o eth1 -j MASQUERADE
 
