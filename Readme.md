@@ -2,6 +2,17 @@
 ## Note
 * Install:
 ```sh
+# to avoid : dnsmasq: failed to create listening socket for port 53: Address already in use
+#https://askubuntu.com/questions/191226/dnsmasq-failed-to-create-listening-socket-for-port-53-address-already-in-use
+#check
+sudo ss -lp "sport = :domain"
+# stop systemd-resolved on port 53
+
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
+sudo systemctl mask systemd-resolved
+
+
 sudo apt-get install -y hostapd dnsmasq ppp minicom iptables
 ```
 
