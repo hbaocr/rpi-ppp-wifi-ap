@@ -16,6 +16,15 @@ sudo systemctl mask systemd-resolved
 sudo apt-get install -y hostapd dnsmasq ppp minicom iptables
 ```
 
+## to install:
+
+```sh
+chmod +x setup-ap.sh
+sudo ./setup-ap.sh
+
+```
+
+
 
 ## Problem 
 ---
