@@ -28,6 +28,17 @@ sudo ./setup-ap.sh
 
 ## Problem 
 ---
+### `iptables v1.8.2 (nf_tables): Chain 'MASQUERADE' does not exist`
+
+https://github.com/pivpn/pivpn/issues/751
+
+```
+update-alternatives --config iptables
+```
+selected the legacy version. Re-ran the debug command and the script was able to auto-fix.
+
+
+
 ### `[1] Hostapd:  'wlan0: STA 24:43:e2:50:31:ff IEEE 802.11: disassociated'`
 
 That may cause wlan0  was already in STA mode and can not start AP mode.In STA the wlan0 is controlled by **wpa_supplicant** ==> To solve just kill wpa_supplicant and try to start hostapad on wlan0 :
